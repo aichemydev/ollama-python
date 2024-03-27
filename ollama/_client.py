@@ -146,6 +146,7 @@ class Client(BaseClient):
     self,
     model: str = '',
     messages: Optional[Sequence[Message]] = None,
+    docs: Optional[Sequence[Message]] = None,
     stream: bool = False,
     format: Literal['', 'json'] = '',
     options: Optional[Options] = None,
@@ -178,6 +179,7 @@ class Client(BaseClient):
       'POST',
       '/api/chat',
       json={
+        'docs': docs,
         'model': model,
         'messages': messages,
         'stream': stream,
